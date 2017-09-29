@@ -1,3 +1,5 @@
+test.rb
 .rspec_status
 coverage/
 .vscode/
+pkg/

@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_dependency 'excon', '~> 0.59.0'
+  spec.add_dependency 'kamelcase', '~> 0'
 end
