@@ -1,8 +1,6 @@
-# Cryptid
+# cryptid.rb
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cryptid`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Ruby client for [Cryptid Analytics](https://cryptid.analytics.io)
 
 ## Installation
 
@@ -20,9 +18,33 @@ Or install it yourself as:
 
     $ gem install cryptid
 
+## Configuration
+
+Use the following code in `config/environments/deveolopment.rb` and others,
+subbing in the appropriate `tracker_id` for each environment.
+
+```ruby
+Cryptid.configure do |config|
+  config.tracker_id = "<insert-your-tracker-id-here>"
+end
+```
+
 ## Usage
 
-TODO: Write usage instructions here
+Anyplace you'd like to traack an event to the analytics service, call
+`Cryptid.send` and supply a hash of event data.
+
+```ruby
+Cryptid.send({
+  event_category: 'authentication',
+  event_action: 'signup'
+  event_label: 'signup-method',
+  event_value: 'facebook'
+})
+```
+
+**Note** that unlike other client libraries for cryptid, the ruby client does
+not automatically gather and fill-in browser data (as there is none).
 
 ## Development
 
@@ -32,7 +54,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/cryptid. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at [https://github.com/adorableio/cryptid.rb](https://github.com/adorableio/cryptid.rb). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -40,4 +62,4 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 ## Code of Conduct
 
-Everyone interacting in the Cryptid project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/cryptid/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Cryptid project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/adorableio/cryptid.rb/blob/master/CODE_OF_CONDUCT.md).
